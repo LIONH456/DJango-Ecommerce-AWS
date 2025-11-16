@@ -19,6 +19,10 @@ git pull origin main || git pull origin master
 echo "2. Stopping containers..."
 sudo docker compose down
 
+# Remove Everything
+echo "   Removing old containers, networks, volumes, and images..."
+sudo docker system prune -af --volumes
+
 # Rebuild Docker image (this includes your code changes)
 echo "3. Rebuilding Docker image with latest code..."
 sudo docker compose build --no-cache
